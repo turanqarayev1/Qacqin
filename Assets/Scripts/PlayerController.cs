@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     public float side_speed;
 
+    public float JumpForce;
     public Transform center_pos;
     public Transform left_pos;
     public Transform right_pos;
@@ -16,11 +17,14 @@ public class PlayerController : MonoBehaviour
     public Animator playerAnimator;
 
     private int current_pos;
+
+    public Rigidbody rb;
     void Start()
     {
         isPlay = false;
 
         current_pos = 0;
+        Physics.IgnoreLayerCollision(3,6);
 
     }
 
@@ -61,7 +65,7 @@ public class PlayerController : MonoBehaviour
                     current_pos = 0;
                 }
 
-
+                StartCoroutine(SideJump());
             }
 
             if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -74,9 +78,28 @@ public class PlayerController : MonoBehaviour
                 {
                     current_pos = 0;
                 }
+                StartCoroutine(SideJump());
             }
-        }
 
-       
+           
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
+            StartCoroutine(Flip_Jump());
+        }
+    }
+    IEnumerator SideJump()
+    {
+        playerAnimator.SetFloat("isSideJump", 1);
+        yield return new WaitForSeconds(0.5f);
+        playerAnimator.SetFloat("isSideJump", 0);
+    }
+
+    IEnumerator Flip_Jump()
+    {
+        playerAnimator.SetFloat("isJumping", 1);
+        yield return new WaitForSeconds(0.9f);
+        playerAnimator.SetFloat("isJumping",0);
     }
 }
