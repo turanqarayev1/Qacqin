@@ -602,10 +602,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   for_speed: 10
-  side_speed: 5
+  side_speed: 10
   center_pos: {fileID: 417250640}
   left_pos: {fileID: 1050112218}
   right_pos: {fileID: 1495178752}
+  playerAnimator: {fileID: 1517209932047034711}
 --- !u!4 &1730407836
 Transform:
   m_ObjectHideFlags: 0
@@ -755,6 +756,7 @@ MonoBehaviour:
   center_pos: {fileID: 417250640}
   left_pos: {fileID: 1050112218}
   right_pos: {fileID: 1495178752}
+  playerAnimator: {fileID: 0}
 --- !u!1 &55727784675856282
 GameObject:
   m_ObjectHideFlags: 0
@@ -1962,7 +1964,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5234812368169871767}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5.88}
+  m_LocalPosition: {x: 0, y: 0, z: -8.44}
   m_LocalScale: {x: 12, y: 12, z: 12}
   m_ConstrainProportionsScale: 0
   m_Children:
